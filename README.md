@@ -10,23 +10,31 @@
     (else
      (my-last(cdr x))))))
 ```
+
 ## Second problem:
 ```scheme
 (define my-but-last
   (lambda(x)
-    (cond ((null? (cdr (cdr x)))
+    (cond ((null? (caddr x))
           x)
       (else(my-but-last (cdr x))))))
 ```
 
 ## Third problem:
 ```scheme
-
+(define (element-at x y)
+  (cond ((= 1 y)
+         (car x))
+        (else (element-at (cdr x) (- y 1)))))
 ```
 
-##  problem:
+## Fourth problem:
 ```scheme
-
+(define number-elements
+  (lambda(x)
+    (cond ((null? (cdr x))
+          1)
+      (else(+ 1 (number-elements (cdr x)))))))
 ```
 
 ##  problem:
