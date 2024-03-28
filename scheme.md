@@ -46,9 +46,16 @@
       (else(append  (reverse (cdr x)) (list(car x)))))))
 ```
 
-##  problem:
+## Sixth problem:
 ```scheme
-
+; Use the function from above
+(define is-palindrome?
+  (lambda (x)
+    (cond ((null? x)
+           #t)
+          ((equal? x (reverse x)) ; here
+           #t)
+          (else #f))))
 ```
 
 ##  problem:
