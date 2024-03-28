@@ -10,3 +10,161 @@
     (else
      (my-last(cdr x))))))
 ```
+## Second problem:
+```scheme
+(define my-but-last
+  (lambda(x)
+    (cond ((null? (cdr (cdr x)))
+          x)
+      (else(my-but-last (cdr x))))))
+```
+
+## Third problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
+
+##  problem:
+```scheme
+
+```
