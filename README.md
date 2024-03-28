@@ -37,9 +37,13 @@
       (else(+ 1 (number-elements (cdr x)))))))
 ```
 
-##  problem:
+## Fifth problem:
 ```scheme
-
+(define reverse
+  (lambda(x)
+    (cond ((null? (cdr x))
+          (list (car x)))
+      (else(append  (reverse (cdr x)) (list(car x)))))))
 ```
 
 ##  problem:
