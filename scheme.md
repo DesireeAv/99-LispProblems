@@ -58,32 +58,36 @@
           (else #f))))
 ```
 
-##  problem:
+## Seventh problem:
+```scheme
+(define (flatten lst)
+  (cond ((null? lst) '())                    
+        ((not (pair? lst)) (list lst))       
+        (else (append (flatten (car lst))    
+                      (flatten (cdr lst)))))) 
+```
+
+## Eighth problem:
 ```scheme
 
 ```
 
-##  problem:
+## Nineth problem:
 ```scheme
 
 ```
 
-##  problem:
+## Tenth problem:
 ```scheme
 
 ```
 
-##  problem:
+## Eleventh problem:
 ```scheme
 
 ```
 
-##  problem:
-```scheme
-
-```
-
-##  problem:
+## Twelfth problem:
 ```scheme
 
 ```
