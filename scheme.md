@@ -69,42 +69,87 @@
 
 ## Eighth problem:
 ```scheme
-
+(define (compress x)
+  (cond ((null? x) '())               
+        ((null? (cdr x)) (list (car x)))  
+        ((equal? (car x) (cadr x))     ; If the current element equals the next element
+         (compress (cdr x)))             ; Skip the current element and continue compressing
+        (else                             ; Otherwise, keep the current element
+         (cons (car x)                   
+               (compress (cdr x))))))   
 ```
 
 ## Nineth problem:
 ```scheme
+(define (pack x)
+  (cond ((null? x) '())
+        (else (cons (pega x) (pack (tira x))))))
 
+(define (pega x)
+  (cond ((null? x) '())
+        ((null? (cdr x)) x)
+        ((equal? (car x) (cadr x))
+         (cons (car x) (pega (cdr x))))
+        (else (list (car x)))))
+
+(define (tira x)
+  (cond ((null? x) '())
+        ((null? (cdr x)) '())
+        ((equal? (car x) (cadr x))
+         (tira (cdr x)))
+        (else (cdr x))))
 ```
 
 ## Tenth problem:
 ```scheme
-
+(define (encode x)
+  (map (lambda (xx) 
+         (list (length xx) (car xx)))   
+       (pack x))) : uses here the problem 09                             
 ```
 
 ## Eleventh problem:
 ```scheme
-
+(define (encode-modified lst)
+  (map (lambda (sublst)
+         (append (cond
+                   ((= (length sublst) 1)(car sublst))
+                   (else(list (length sublst) (car sublst))))))
+       (pack lst)))
 ```
 
-## Twelfth problem:
+## Twelfth problem: ***
 ```scheme
 
 ```
 
-##  problem:
+## Thirteenth problem:
 ```scheme
-
+(define (encode-modified lst)
+  (map (lambda (sublst)
+         (append (cond
+                   ((= (length sublst) 1)(car sublst))
+                   (else(list (length sublst) (car sublst))))))
+       (pack lst)))
 ```
 
-##  problem:
+## Fourteenth problem:
 ```scheme
-
+(define (dupli lst)
+  (cond ((null? lst) '())
+        (else (append (list (car lst)) (list (car lst)) (dupli (cdr lst))))))
 ```
 
-##  problem:
+## Fifteenth problem:
 ```scheme
+(define (repeat-value n e)
+  (cond ((= n 0) '())            
+        (else (cons e             
+                    (repeat-value (- n 1) e)))))  
 
+(define (repli lst y)
+  (cond ((null? lst) '())
+        (else (append (repeat-value y (car lst)) (repli (cdr lst) y)))))
 ```
 
 ##  problem:
