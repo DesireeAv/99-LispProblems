@@ -224,22 +224,42 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
 
 ## Thirtieth problem:
 ```scheme
+(define (is-prime? n)
+  (is-prime-aux? n 2) )
 
+(define (is-prime-aux? n i)
+  (cond
+       ((= n 2) #t)
+       ((< n 2) #f)
+       ((= (modulo n i) 0) #f)
+       ((> (* i i) n) #t)
+       (else (is-prime-aux? n (+ i 1)))))
 ```
 
 ## Thirty-first problem:
 ```scheme
-
+(define (gcd a b)
+  (cond((= b 0) a)
+       (else (gcd b (modulo a b)))))
 ```
 
-##  problem:
+## Thirty-second problem:
 ```scheme
-
+(define (coprime x y)
+  (cond ((= (gcd x y) 1)#t)
+        (else #f)))
 ```
 
-##  problem:
+## Thirty-third problem:
 ```scheme
+(define (totient-phi m)
+  (cond ((< 0 m)(phi-aux 1 m 0))
+        (else -1)))
 
+(define (phi-aux i n res)
+  (cond((= i n) res)
+       ((= 1 (gcd i n)) (phi-aux (+ i 1) n (+ res 1)))
+       (else (phi-aux (+ i 1) n res ))))
 ```
 
 ##  problem:
