@@ -152,42 +152,49 @@
         (else (append (repeat-value y (car lst)) (repli (cdr lst) y)))))
 ```
 
-##  problem:
+## Sixteenth problem:
+```scheme
+(define (drop lst y)
+  (drop-aux lst y y))
+
+(define (drop-aux lst y count)
+  (cond
+    ((null? lst) '())
+    ((= count 1) (drop-aux (cdr lst) y y))  
+    (else (cons (car lst) (drop-aux (cdr lst) y (- count 1)))))) 
+```
+
+## Seventeenth problem:
 ```scheme
 
 ```
 
-##  problem:
+## Eighteenth problem:
 ```scheme
 
 ```
 
-##  problem:
+## Nineteenth problem:
 ```scheme
 
 ```
 
-##  problem:
+## Twentyth problem:
 ```scheme
 
 ```
 
-##  problem:
+## Twenty-first problem:
 ```scheme
 
 ```
 
-##  problem:
+## Twenty-second problem:
 ```scheme
 
 ```
 
-##  problem:
-```scheme
-
-```
-
-##  problem:
+## Twenty-third problem:
 ```scheme
 
 ```
