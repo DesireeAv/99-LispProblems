@@ -166,22 +166,41 @@
 
 ## Seventeenth problem:
 ```scheme
+(define (take lst n) ; returns a list of the first n elements of a list
+  (if (or (null? lst) (= n 0))
+      '()                              
+      (cons (car lst)                  
+            (take (cdr lst) (- n 1))))) 
 
+(define (split lst n)
+  (cond ((null?  lst) '())                     
+        (else (list (take lst n)  (drop lst n))) ; here it uses the problem 16
+                     )) 
 ```
 
 ## Eighteenth problem:
 ```scheme
-
+(define (slice lst i k)
+  (cond((null? lst) '())
+        (else (drop (take lst k) i)))) ; use the problems 16 & 17
 ```
 
-## Nineteenth problem:
+## Nineteenth problem: *
 ```scheme
-
+(define (rotate lst n)
+  (define sublist lst)
+  (cond((null? lst) '())
+       ((< n 0) (append (cdr (split lst (+ (length lst) n))) (car (split lst (+ (length lst) n)))) )
+       (else (append  (slice lst n (length lst)) (take sublist n) ))))
 ```
 
 ## Twentyth problem:
 ```scheme
-
+(define (remove-at lst n)
+  (cond
+       ((null? lst)'())
+       ((= n 1) (cdr lst))
+       (else(append (list (car lst)) (remove-at (cdr lst) (- n 1))))))
 ```
 
 ## Twenty-first problem:
