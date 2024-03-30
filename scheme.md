@@ -170,22 +170,26 @@ They are the following:
 ### Seventeenth problem:
 ```scheme
 (define (take lst n) ; returns a list of the first n elements of a list
+  (cond ((or (null? lst) (= n 0))'())                              
+      (else(cons (car lst) (take (cdr lst) (- n 1))))))
+
+(define (drop2 lst n)
   (if (or (null? lst) (= n 0))
-      '()                              
-      (cons (car lst)                  
-            (take (cdr lst) (- n 1))))) 
+      lst                         ; if lst is empty or n is 0, return lst as it is
+      (drop2 (cdr lst) (- n 1)))) ; otherwise, recursively call drop with the rest of the list and n decremented by 1
 
 (define (split lst n)
   (cond ((null?  lst) '())                     
-        (else (list (take lst n)  (drop lst n))) ; here it uses the problem 16
+        (else (list (take lst n)  (drop2 lst n))) ; here it uses the problem 16
                      )) 
+
 ```
 
 ### Eighteenth problem:
 ```scheme
 (define (slice lst i k)
   (cond((null? lst) '())
-        (else (drop (take lst k) i)))) ; use the problems 16 & 17
+        (else (drop2 (take lst k) i)))) ; use the problem 17
 ```
 
 ### Nineteenth problem: *
