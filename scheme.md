@@ -3,7 +3,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
 
 - ## Working with lists
 
-## First problem:
+### First problem:
 ```scheme
 (define my-last
   (lambda(x)
@@ -13,7 +13,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
      (my-last(cdr x))))))
 ```
 
-## Second problem:
+### Second problem:
 ```scheme
 (define my-but-last
   (lambda(x)
@@ -22,7 +22,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
       (else(my-but-last (cdr x))))))
 ```
 
-## Third problem:
+### Third problem:
 ```scheme
 (define (element-at x y)
   (cond ((= 1 y)
@@ -30,7 +30,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
         (else (element-at (cdr x) (- y 1)))))
 ```
 
-## Fourth problem:
+### Fourth problem:
 ```scheme
 (define number-elements
   (lambda(x)
@@ -39,7 +39,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
       (else(+ 1 (number-elements (cdr x)))))))
 ```
 
-## Fifth problem:
+### Fifth problem:
 ```scheme
 (define reverse
   (lambda(x)
@@ -48,7 +48,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
       (else(append  (reverse (cdr x)) (list(car x)))))))
 ```
 
-## Sixth problem:
+### Sixth problem:
 ```scheme
 ; Use the function from above
 (define is-palindrome?
@@ -60,7 +60,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
           (else #f))))
 ```
 
-## Seventh problem:
+### Seventh problem:
 ```scheme
 (define (flatten lst)
   (cond ((null? lst) '())                    
@@ -69,7 +69,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
                       (flatten (cdr lst)))))) 
 ```
 
-## Eighth problem:
+### Eighth problem:
 ```scheme
 (define (compress x)
   (cond ((null? x) '())               
@@ -81,7 +81,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
                (compress (cdr x))))))   
 ```
 
-## Nineth problem:
+### Nineth problem:
 ```scheme
 (define (pack x)
   (cond ((null? x) '())
@@ -102,15 +102,15 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
         (else (cdr x))))
 ```
 
-## Tenth problem:
+### Tenth problem:
 ```scheme
 (define (encode x)
   (map (lambda (xx) 
          (list (length xx) (car xx)))   
-       (pack x))) : uses here the problem 09                             
+       (pack x))) ; uses here the problem 09                             
 ```
 
-## Eleventh problem:
+### Eleventh problem:
 ```scheme
 (define (encode-modified lst)
   (map (lambda (sublst)
@@ -120,12 +120,12 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
        (pack lst)))
 ```
 
-## Twelfth problem: ***
+### Twelfth problem: ***
 ```scheme
 
 ```
 
-## Thirteenth problem:
+### Thirteenth problem:
 ```scheme
 (define (encode-modified lst)
   (map (lambda (sublst)
@@ -135,14 +135,14 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
        (pack lst)))
 ```
 
-## Fourteenth problem:
+### Fourteenth problem:
 ```scheme
 (define (dupli lst)
   (cond ((null? lst) '())
         (else (append (list (car lst)) (list (car lst)) (dupli (cdr lst))))))
 ```
 
-## Fifteenth problem:
+### Fifteenth problem:
 ```scheme
 (define (repeat-value n e)
   (cond ((= n 0) '())            
@@ -154,7 +154,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
         (else (append (repeat-value y (car lst)) (repli (cdr lst) y)))))
 ```
 
-## Sixteenth problem:
+### Sixteenth problem:
 ```scheme
 (define (drop lst y)
   (drop-aux lst y y))
@@ -166,7 +166,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
     (else (cons (car lst) (drop-aux (cdr lst) y (- count 1)))))) 
 ```
 
-## Seventeenth problem:
+### Seventeenth problem:
 ```scheme
 (define (take lst n) ; returns a list of the first n elements of a list
   (if (or (null? lst) (= n 0))
@@ -180,14 +180,14 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
                      )) 
 ```
 
-## Eighteenth problem:
+### Eighteenth problem:
 ```scheme
 (define (slice lst i k)
   (cond((null? lst) '())
         (else (drop (take lst k) i)))) ; use the problems 16 & 17
 ```
 
-## Nineteenth problem: *
+### Nineteenth problem: *
 ```scheme
 (define (rotate lst n)
   (define sublist lst)
@@ -196,7 +196,7 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
        (else (append  (slice lst n (length lst)) (take sublist n) ))))
 ```
 
-## Twentyth problem:
+### Twentyth problem:
 ```scheme
 (define (remove-at lst n)
   (cond
@@ -205,24 +205,24 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
        (else(append (list (car lst)) (remove-at (cdr lst) (- n 1))))))
 ```
 
-## Twenty-first problem:
+### Twenty-first problem:
 ```scheme
 
 ```
 
-## Twenty-second problem:
+### Twenty-second problem:
 ```scheme
 
 ```
 
-## Twenty-third problem:
+### Twenty-third problem:
 ```scheme
 
 ```
 
 - ## Arithmetic
 
-## Thirtieth problem:
+### Thirty-first problem:
 ```scheme
 (define (is-prime? n)
   (is-prime-aux? n 2) )
@@ -236,21 +236,21 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
        (else (is-prime-aux? n (+ i 1)))))
 ```
 
-## Thirty-first problem:
+### Thirty-second problem:
 ```scheme
 (define (gcd a b)
   (cond((= b 0) a)
        (else (gcd b (modulo a b)))))
 ```
 
-## Thirty-second problem:
+### Thirty-third problem:
 ```scheme
 (define (coprime x y)
   (cond ((= (gcd x y) 1)#t)
         (else #f)))
 ```
 
-## Thirty-third problem:
+### Thirty-fourth problem:
 ```scheme
 (define (totient-phi m)
   (cond ((< 0 m)(phi-aux 1 m 0))
@@ -262,27 +262,66 @@ This file has the purpose of studying the [99 Scheme Problems](https://www.ic.un
        (else (phi-aux (+ i 1) n res ))))
 ```
 
-##  problem:
+### Thirty-fifth problem:
+```scheme
+(define (prime-factors n)
+  (pf-aux n n 3))
+
+(define (pf-aux n m i)
+  (cond((< (+ (sqrt m) 1) i) '()) ; si i es mas grande que la raiz del numero original a factorizar, termina
+       ((= (modulo n 2) 0) (append (list 2) (pf-aux (/ n 2) m i))) ; condicion especial para el 2
+       ((= (modulo n i) 0) (append (list i) (pf-aux (/ n i) m i))) ; si lo divide
+       (else   (pf-aux n m (+ i 2))))) ; si no lo divide
+```
+
+### Thirty-sixth problem:
+```scheme
+(define (prime-factors-mult n)
+  (encode (prime-factors n)))
+```
+
+### Thirty-seventh problem:
 ```scheme
 
 ```
 
-##  problem:
+###  problem:
 ```scheme
 
 ```
-
-##  problem:
+###  problem:
 ```scheme
 
 ```
-
-##  problem:
+###  problem:
 ```scheme
 
 ```
+###  problem:
+```scheme
 
-##  problem:
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
 ```scheme
 
 ```
