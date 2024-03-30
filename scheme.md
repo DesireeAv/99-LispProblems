@@ -269,7 +269,7 @@ They are the following:
   (pf-aux n n 3))
 
 (define (pf-aux n m i)
-  (cond((< (+ (sqrt m) 1) i) '()) ; si i es mas grande que la raiz del numero original a factorizar, termina
+  (cond((= n 1) '()) ; si n es 1, termina
        ((= (modulo n 2) 0) (append (list 2) (pf-aux (/ n 2) m i))) ; condicion especial para el 2
        ((= (modulo n i) 0) (append (list i) (pf-aux (/ n i) m i))) ; si lo divide
        (else   (pf-aux n m (+ i 2))))) ; si no lo divide
@@ -283,6 +283,66 @@ They are the following:
 
 ### Thirty-seventh problem:
 ```scheme
+(define (phi2 n)
+  (phi2-aux (prime-factors-mult n)))
+
+(define (phi2-aux lst)
+  (cond((null? lst) 1) ; base case, no others prime factors left(has to be 1 as we are *) 
+       (else ( *  ( * (- (car (cdr (car lst))) 1)
+                    (expt (car (cdr (car lst))) (- (caar lst) 1)))
+                  (phi2-aux (cdr lst))  )  )))
+```
+
+### Thirty-eighth problem:
+Test 1:
+```bash
+> (time (phi2 10090))
+cpu time: 0 real time: 0 gc time: 0
+4032
+> (time(totient-phi 10090))
+cpu time: 5 real time: 5 gc time: 0
+4032
+```
+This previous example didn't demonstrate the difference in time complexity between the two algorithms, so I ran two more tests:
+
+Test 2:
+```bash
+> (time (phi2 100900))
+cpu time: 0 real time: 0 gc time: 0
+40320
+> (time(totient-phi 100900))
+cpu time: 62 real time: 62 gc time: 1
+40320
+```
+Test 3:
+```bash
+> (time (phi2 1009000))
+cpu time: 0 real time: 0 gc time: 0
+403200
+>  (time(totient-phi 1009000))
+cpu time: 873 real time: 873 gc time: 249
+403200
+```
+So there we can really see the difference between these two algorithms, being the problem 37 the most efficient one.
+
+
+### Thirty-nineth problem:
+```scheme
+
+```
+### Fortyth problem:
+```scheme
+
+```
+### Forty-one problem:
+```scheme
+
+```
+
+- ## Logic and Codes
+
+###  problem:
+```scheme
 
 ```
 
@@ -290,39 +350,29 @@ They are the following:
 ```scheme
 
 ```
+
 ###  problem:
 ```scheme
 
 ```
+
 ###  problem:
 ```scheme
 
 ```
+
 ###  problem:
 ```scheme
 
 ```
+
+- ## Binary Trees
+
 ###  problem:
 ```scheme
 
 ```
-###  problem:
-```scheme
 
-```
-###  problem:
-```scheme
-
-```
-###  problem:
-```scheme
-
-```
-###  problem:
-```scheme
-
-```
-###  problem:
-```scheme
-
-```
+- ## Multiway Trees
+- ## Graphs
+- ## Miscellaneous Problems
