@@ -1,5 +1,5 @@
 # 99-SchemeProblems
-This file has the purpose of studying the [99 Scheme Problems](https://www.ic.unicamp.br/~meidanis/courses/mc336/problemas-lisp/L-99_Ninety-Nine_Lisp_Problems.html)
+This file has the purpose of studying the [99 Scheme Problems](https://www.ic.unicamp.br/~meidanis/courses/mc336/problemas-lisp/L-99_Ninety-Nine_Lisp_Problems.html).
 They are the following:
 
 - ## Working with lists
