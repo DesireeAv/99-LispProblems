@@ -121,9 +121,16 @@ They are the following:
        (pack lst)))
 ```
 
-### Twelfth problem: ***
+### Twelfth problem:
 ```scheme
+(define (decode-aux n a) ;has 2 parameters, the number, and the letter to repeat the number of times in a list
+  (cond ((= n 0)'())
+        (else(append (list a) (decode-aux (- n 1) a)))))
 
+(define (decode lst)
+  (cond((null? lst)'())
+       ((list? (car lst))  (append (decode-aux (caar lst) (cadr(car lst)))  (decode (cdr lst))  ) )
+       (else(append (list(car lst))  (decode (cdr lst))  )   )))
 ```
 
 ### Thirteenth problem:
