@@ -1,4 +1,6 @@
+
 ; You can download here the complete file with the problems and try them!
+
 
 ; First problem:
 
@@ -215,15 +217,45 @@
 
 ; Twenty-first problem:
 
-
+(define(insert-at a lst i)
+  (cond((null? lst) '())
+       ((= i 1) (cons a lst))
+       (else( cons (car lst) (insert-at a (cdr lst) (- i 1))))))
 
 
 ; Twenty-second problem:
 
-
+(define (range a b)
+  (cond((> a b)'())
+       (else(cons a (range (+ a 1) b)))))
 
 
 ; Twenty-third problem:
+
+
+
+
+; Twenty-fourth problem:
+
+
+
+
+; Twenty-fifth problem:
+
+
+
+
+; Twenty-sixth problem:
+
+
+
+
+; Twenty-seventh problem:
+
+
+
+
+; Twenty-eighth problem:
 
 
 
@@ -301,6 +333,7 @@
 
 
 
+
 ; Thirty-nineth problem:
 
 (define (primes-list n m)
@@ -326,3 +359,5 @@
 (define (goldbach-list n m)
   (cond((= n m) null)
        (else(append  (goldbach (+ n 1)) (list '- ) (goldbach-list (+ n 1) m)))))
+
+
