@@ -328,15 +328,29 @@ So there we can really see the difference between these two algorithms, being th
 
 ### Thirty-nineth problem:
 ```scheme
-
+(define (primes-list n m)
+  (cond((> n m)'())
+       ((is-prime? n) (append (list n)   (primes-list (+ n 1) m))  )
+       (else(primes-list (+ n 1) m))))
 ```
 ### Fortyth problem:
 ```scheme
+(define (terms-sum k lst)
+  (cond
+    ((null? lst) '())
+    ((member (- k (car lst)) lst)
+     (list (car lst) (- k (car lst))))
+    (else (terms-sum k (cdr lst)))))
 
+(define (goldbach n)
+  (cond((odd? n) 0)
+       (else(terms-sum n (primes-list 2 n)))))
 ```
 ### Forty-one problem:
 ```scheme
-
+(define (goldbach-list n m)
+  (cond((= n m) null)
+       (else(append  (goldbach (+ n 1)) (list '- ) (goldbach-list (+ n 1) m)))))
 ```
 
 - ## Logic and Codes
