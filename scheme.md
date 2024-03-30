@@ -219,15 +219,45 @@ They are the following:
 
 ### Twenty-first problem:
 ```scheme
-
+(define(insert-at a lst i)
+  (cond((null? lst) '())
+       ((= i 1) (cons a lst))
+       (else( cons (car lst) (insert-at a (cdr lst) (- i 1))))))
 ```
 
 ### Twenty-second problem:
 ```scheme
-
+(define (range a b)
+  (cond((> a b)'())
+       (else(cons a (range (+ a 1) b)))))
 ```
 
 ### Twenty-third problem:
+```scheme
+
+```
+
+### Twenty-fourth problem:
+```scheme
+
+```
+
+### Twenty-fifth problem:
+```scheme
+
+```
+
+### Twenty-sixth problem:
+```scheme
+
+```
+
+### Twenty-seventh problem:
+```scheme
+
+```
+
+### Twenty-eighth problem:
 ```scheme
 
 ```
