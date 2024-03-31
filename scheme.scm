@@ -232,7 +232,15 @@
 
 ; Twenty-third problem:
 
+(define (rnd-select-aux lst n r)
+  (cond ((= 0 n) '())
+        ((= r 0) (list (car lst)))
+        (else(rnd-select-aux (cdr lst) n (- r 1)))))
 
+(define(rnd-select lst n)
+ 
+  (cond((= 0 n) '())
+       (else(append  (rnd-select lst (- n 1))   (rnd-select-aux lst n (random (length lst)))  ))))
 
 
 ; Twenty-fourth problem:
