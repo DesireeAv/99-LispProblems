@@ -527,6 +527,11 @@ Here, we can visualize better the tree levels:
         (else (mirror? (car tree) (cdr tree)))))  
 ```
 
+### Fifty-Seventh problem:
+```scheme
+
+```
+
 ### Fifty-eighth problem:
 ```scheme
 
