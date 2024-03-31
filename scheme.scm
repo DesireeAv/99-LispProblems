@@ -245,7 +245,8 @@
 
 ; Twenty-fourth problem:
 
-
+(define (lotto-select a b)
+  (rnd-select (range 1 b) a))
 
 
 ; Twenty-fifth problem:
@@ -266,9 +267,6 @@
 ; Twenty-eighth problem:
 
 
-
-
-- ## Arithmetic
 
 ; Thirty-first problem:
 
