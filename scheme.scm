@@ -2,6 +2,9 @@
 ;;;;;;;;;;;; You can download here the complete file with the problems and try them!;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+; Working with lists
+
 ; First problem:
 
 (define my-last
@@ -257,17 +260,81 @@
 
 ; Twenty-sixth problem:
 
-
+(define combination
+  (lambda (k lst)
+    (cond((= 0 k) '(()))
+         ((= k (length lst))(list lst))
+         (else(append(map(lambda (c) (cons (car lst) c))
+                         (combination (- k 1) (cdr lst) ))
+                     (combination k (cdr lst) ))))))
 
 
 ; Twenty-seventh problem:
+a)
 
+(define (group3 lst)
+  (cond((null? lst) '())
+       (else(append (combination 2 lst) (combination 3 lst) (combination 4 lst) ))))
 
+b)
 
+(define (group lst nmbrs)
+  (cond((null? nmbrs) '())
+       (else(append (combination (car nmbrs) lst)
+                    (group lst (cdr nmbrs)  ) ))))
 
 ; Twenty-eighth problem:
+a)
 
+(define (lsort lst)
+  (cond ((null? lst) '())  
+        (else (let ((sorted (sort lst (lambda (x y) (< (length x) (length y))))))
+                sorted))))
 
+(define (sort lst cmp)
+  (cond ((null? lst)lst)
+        (else(insert (car lst) (sort (cdr lst) cmp) cmp))))
+
+(define (insert elt lst cmp)
+  (cond ((null? lst) (list elt))
+        ((cmp elt (car lst)) (cons elt lst))
+        (else (cons (car lst) (insert elt (cdr lst) cmp)))))
+
+b)
+
+(define (length-frequencies lst)
+  (define (count-lengths lst)
+    (cond ((null? lst)
+        '())
+        (else(let ((len (length (car lst))))
+          (cons len (count-lengths (cdr lst)))))))
+
+  (define (frequency-counter freqs lengths)
+    (cond ((null? lengths)
+        freqs)
+        ((let ((len (car lengths)))
+          (cond ((assoc len freqs)
+              (frequency-counter
+               (update-frequency len freqs)
+               (cdr lengths)))
+              (else(frequency-counter
+               (cons (cons len 1) freqs)
+               (cdr lengths))))))))
+
+  (define (update-frequency len freqs)
+    (map (lambda (pair)
+           (if (= (car pair) len)
+               (cons len (+ 1 (cdr pair)))
+               pair))
+         freqs))
+
+  (let ((lengths (count-lengths lst)))
+    (let ((frequencies (frequency-counter '() lengths)))
+      (sort lst (lambda (x y)
+                  (> (cdr (assoc (length x) frequencies))
+                     (cdr (assoc (length y) frequencies))))))))
+
+; Arithmetic
 
 ; Thirty-first problem:
 
@@ -339,8 +406,6 @@
                   (phi2-aux (cdr lst))  )  )))
 
 
-
-
 ; Thirty-nineth problem:
 
 (define (primes-list n m)
@@ -368,3 +433,46 @@
        (else(append  (goldbach (+ n 1)) (list '- ) (goldbach-list (+ n 1) m)))))
 
 
+; Logic and Codes
+; Binary Trees
+;In scheme, we are going to represent binary trees like this: `'(a (b () ()) ())`, a list of 3 elements, where the root is the firt element, then the second element is the left child, and the third is the right child.
+
+
+; Fifty-fourth problem:
+
+(define (istree? tree)
+  (cond ((null? tree) #t)
+        (else (and (list? tree)                    ; if it is a list
+                   (= 3 (length tree))             ; is the length is 3
+                   (istree? (cadr tree))           ; recursive call to the left subtree
+                   (istree? (caddr tree))))))      ; recursive call to the left subtree
+
+
+; Fifty-fifth problem:
+
+
+
+
+;  problem:
+
+
+
+
+;  problem:
+
+
+
+
+;  problem:
+
+
+
+
+;  problem:
+
+
+
+
+; Multiway Trees
+; Graphs
+; Miscellaneous Problems
