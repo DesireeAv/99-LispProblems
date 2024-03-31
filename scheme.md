@@ -1,5 +1,5 @@
 # 99-SchemeProblems
-This file has the purpose of studying the [99 Scheme Problems](https://www.ic.unicamp.br/~meidanis/courses/mc336/problemas-lisp/L-99_Ninety-Nine_Lisp_Problems.html).
+This file has the purpose of studying the [`99 Scheme Problems`](https://www.ic.unicamp.br/~meidanis/courses/mc336/problemas-lisp/L-99_Ninety-Nine_Lisp_Problems.html).
 They are the following:
 
 - ## Working with lists
@@ -515,26 +515,96 @@ Here, we can visualize better the tree levels:
       (2 (1 () ())
          (1 () ()))))
 ```
-###  problem:
+### Fifty-sixth problem:
+```scheme
+(define (symmetric tree)
+  (define (mirror? left right)
+    (cond ((and (null? left) (null? right)) #t)  
+          ((or (null? left) (null? right)) #f)  
+          (else (and (mirror? (car left) (car right))  
+                     (mirror? (cdr left) (cdr right))))))
+  (cond ((null? tree) #t)  
+        (else (mirror? (car tree) (cdr tree)))))  
+```
+
+### Fifty-eighth problem:
 ```scheme
 
 ```
 
-###  problem:
+### Fifty-ninth problem:
 ```scheme
 
 ```
 
-###  problem:
+### Sixtieth problem:
 ```scheme
 
 ```
+### Sixty-First problem:
+```scheme
 
-###  problem:
+```
+### Sixty-Second problem:
+```scheme
+
+```
+### Sixty-Third problem:
+```scheme
+
+```
+### Sixty-Fourth problem:
+```scheme
+
+``` 
+### Sixty-Fifth problem:
+```scheme
+
+```
+### Sixty-Sixth problem:
+```scheme
+
+```
+### Sixty-Seventh problem:
+```scheme
+
+```
+### Sixty-Eighth problem:
+```scheme
+
+```
+### Sixty-Ninth problem:
 ```scheme
 
 ```
 
 - ## Multiway Trees
+
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+###  problem:
+```scheme
+
+```
+
+
 - ## Graphs
 - ## Miscellaneous Problems
