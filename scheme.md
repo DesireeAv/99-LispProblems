@@ -484,6 +484,8 @@ It works like this:
 ```bash
 > (istree? '(a (b () ()) ()))
 #t
+```
+```bash
 > (istree? '(a (b () ())))
 #f
 ```
