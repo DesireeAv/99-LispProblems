@@ -251,7 +251,8 @@
 
 ; Twenty-fifth problem:
 
-
+(define (rnd-permu lst)
+  (rnd-select lst (length lst)))
 
 
 ; Twenty-sixth problem:
