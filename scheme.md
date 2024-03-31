@@ -253,7 +253,8 @@ They are the following:
 
 ### Twenty-fifth problem:
 ```scheme
-
+(define (rnd-permu lst)
+  (rnd-select lst (length lst)))
 ```
 
 ### Twenty-sixth problem:
