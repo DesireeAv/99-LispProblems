@@ -247,7 +247,8 @@ They are the following:
 
 ### Twenty-fourth problem:
 ```scheme
-
+(define (lotto-select a b)
+  (rnd-select (range 1 b) a))
 ```
 
 ### Twenty-fifth problem:
