@@ -492,9 +492,18 @@ It works like this:
 
 ### Fifty-fifth problem:
 ```scheme
-
+(define (cbal-tree-print n)
+  (cond((= n 0) '())
+       (else(append (list n)  ; also works (list 'X)
+                    (list (cbal-tree-print (- n 1)))
+                    (list (cbal-tree-print (- n 1)))
+                    ))))
 ```
-
+It works like this:
+```bash
+> (cbal-tree-print 4)
+(4 (3 (2 (1 () ()) (1 () ())) (2 (1 () ()) (1 () ()))) (3 (2 (1 () ()) (1 () ())) (2 (1 () ()) (1 () ()))))
+```
 ###  problem:
 ```scheme
 
