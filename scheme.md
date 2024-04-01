@@ -533,8 +533,14 @@ Here, we can visualize better the tree levels:
 ```
 
 ### Fifty-eighth problem:
+(Its the same function as the problem 55)
 ```scheme
-
+(define (sym-cbal-trees-print n)
+  (cond((= n 0) '())
+       (else(append (list n)  ; also works (list 'X)
+                    (list (cbal-tree-print (- n 1)))
+                    (list (cbal-tree-print (- n 1)))
+                    ))))
 ```
 
 ### Fifty-ninth problem:
@@ -546,39 +552,52 @@ Here, we can visualize better the tree levels:
 ```scheme
 
 ```
-### Sixty-First problem:
+### Sixty-first problem:
 ```scheme
-
+(define (count-leaves tree)
+  (cond((null? tree)0)
+       ((null? (and (cadr tree) (caddr tree) )) 1)
+       (else(+ (count-leaves (cadr tree)) (count-leaves (caddr tree))))))
 ```
-### Sixty-Second problem:
+### Sixty-second problem:
 ```scheme
-
+(define (leaves tree)
+  (cond((null? tree)'())
+       ((and (null? (cadr tree)) (null?(caddr tree)) ) (list (car tree)))
+       (else(append (leaves (cadr tree)) (leaves (caddr tree))))))
 ```
-### Sixty-Third problem:
+### Sixty-second-B problem:
 ```scheme
-
+(define (atlevel tree L)
+  (cond((null? tree)'())
+       ((= L 1) (list(car tree)))
+       (else(append (atlevel (cadr tree) (- L 1)) (atlevel (caddr tree) (- L 1))))))
 ```
-### Sixty-Fourth problem:
+### Sixty-third problem:
 ```scheme
 
 ``` 
-### Sixty-Fifth problem:
+### Sixty-fourth problem:
+```scheme
+
+``` 
+### Sixty-fifth problem:
 ```scheme
 
 ```
-### Sixty-Sixth problem:
+### Sixty-sixth problem:
 ```scheme
 
 ```
-### Sixty-Seventh problem:
+### Sixty-seventh problem:
 ```scheme
 
 ```
-### Sixty-Eighth problem:
+### Sixty-eighth problem:
 ```scheme
 
 ```
-### Sixty-Ninth problem:
+### Sixty-ninth problem:
 ```scheme
 
 ```
