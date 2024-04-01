@@ -56,10 +56,10 @@
 (define is-palindrome?
   (lambda (x)
     (cond ((null? x)
-           #t)
+           t)
           ((equal? x (reverse x)) ; here
-           #t)
-          (else #f))))
+           t)
+          (else f))))
 
 
 ; Seventh problem:
@@ -343,10 +343,10 @@ b)
 
 (define (is-prime-aux? n i)
   (cond
-       ((= n 2) #t)
-       ((< n 2) #f)
-       ((= (modulo n i) 0) #f)
-       ((> (* i i) n) #t)
+       ((= n 2) t)
+       ((< n 2) f)
+       ((= (modulo n i) 0) f)
+       ((> (* i i) n) t)
        (else (is-prime-aux? n (+ i 1)))))
 
 
@@ -360,8 +360,8 @@ b)
 ; Thirty-third problem:
 
 (define (coprime x y)
-  (cond ((= (gcd x y) 1)#t)
-        (else #f)))
+  (cond ((= (gcd x y) 1)t)
+        (else f)))
 
 
 ; Thirty-fourth problem:
@@ -406,6 +406,8 @@ b)
                   (phi2-aux (cdr lst))  )  )))
 
 
+
+
 ; Thirty-nineth problem:
 
 (define (primes-list n m)
@@ -435,44 +437,143 @@ b)
 
 ; Logic and Codes
 ; Binary Trees
-;In scheme, we are going to represent binary trees like this: `'(a (b () ()) ())`, a list of 3 elements, where the root is the firt element, then the second element is the left child, and the third is the right child.
 
 
 ; Fifty-fourth problem:
 
 (define (istree? tree)
-  (cond ((null? tree) #t)
+  (cond ((null? tree) t)
         (else (and (list? tree)                    ; if it is a list
                    (= 3 (length tree))             ; is the length is 3
                    (istree? (cadr tree))           ; recursive call to the left subtree
                    (istree? (caddr tree))))))      ; recursive call to the left subtree
 
 
+
+
 ; Fifty-fifth problem:
 
+(define (cbal-tree-print n)
+  (cond((= n 0) '())
+       (else(append (list n)  ; also works (list 'X)
+                    (list (cbal-tree-print (- n 1)))
+                    (list (cbal-tree-print (- n 1)))
+                    ))))
+
+; Fifty-sixth problem:
+
+(define (symmetric tree)
+  (define (mirror? left right)
+    (cond ((and (null? left) (null? right)) t)  
+          ((or (null? left) (null? right)) f)  
+          (else (and (mirror? (car left) (car right))  
+                     (mirror? (cdr left) (cdr right))))))
+  (cond ((null? tree) t)  
+        (else (mirror? (car tree) (cdr tree)))))  
+
+
+; Fifty-Seventh problem:
 
 
 
-;  problem:
+
+; Fifty-eighth problem:
+(Its the same function as the problem 55)
+
+(define (sym-cbal-trees-print n)
+  (cond((= n 0) '())
+       (else(append (list n)  ; also works (list 'X)
+                    (list (cbal-tree-print (- n 1)))
+                    (list (cbal-tree-print (- n 1)))
+                    ))))
+
+
+; Fifty-ninth problem:
 
 
 
 
-;  problem:
+; Sixtieth problem:
 
 
 
+; Sixty-first problem:
 
-;  problem:
+(define (count-leaves tree)
+  (cond((null? tree)0)
+       ((null? (and (cadr tree) (caddr tree) )) 1)
+       (else(+ (count-leaves (cadr tree)) (count-leaves (caddr tree))))))
+
+; Sixty-second problem:
+
+(define (leaves tree)
+  (cond((null? tree)'())
+       ((and (null? (cadr tree)) (null?(caddr tree)) ) (list (car tree)))
+       (else(append (leaves (cadr tree)) (leaves (caddr tree))))))
+
+; Sixty-second-B problem:
+
+(define (atlevel tree L)
+  (cond((null? tree)'())
+       ((= L 1) (list(car tree)))
+       (else(append (atlevel (cadr tree) (- L 1)) (atlevel (caddr tree) (- L 1))))))
+
+; Sixty-third problem:
+
+
+ 
+; Sixty-fourth problem:
+
+
+ 
+; Sixty-fifth problem:
 
 
 
+; Sixty-sixth problem:
 
-;  problem:
+
+
+; Sixty-seventh problem:
+
+
+
+; Sixty-eighth problem:
+
+
+
+; Sixty-ninth problem:
 
 
 
 
 ; Multiway Trees
+
+;  problem:
+
+
+
+;  problem:
+
+
+
+;  problem:
+
+
+
+;  problem:
+
+
+
+;  problem:
+
+
+
+;  problem:
+
+
+
+
+
 ; Graphs
 ; Miscellaneous Problems
