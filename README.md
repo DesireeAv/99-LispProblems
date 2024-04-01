@@ -4,3 +4,8 @@ This is a repository that will have the solutions to the [Ninety-Nine Lisp Probl
 ### Author 🍬
 
 - [@desireeav](https://github.com/DesireeAv) 
+
+### Helpful websites:
+- [How to Design Programs (scheme)](https://htdp.org/2003-09-26/Book/curriculum-Z-H-1.html)
+- [Program by Design](https://programbydesign.org/)
+- [Racket](https://racket-lang.org/)
