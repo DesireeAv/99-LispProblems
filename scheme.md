@@ -560,7 +560,17 @@ Here, we can visualize better the tree levels:
 
 ### Fifty-ninth problem:
 ```scheme
+(define(min-nodes H)
+  (cond((= H 0) 1)
+       ((= H 1) 2)
+       (else(+ 1 (+ (min-nodes (- H 1)) (min-nodes (- H 2)) ))))) 
 
+(define (max-height n)
+  (max-height-aux -1 0 1 n))
+
+(define (max-height-aux h fh fh1 n)
+  (cond ((< n fh1)h)
+        (else(max-height-aux (1+ h) fh1 (+ 1 fh fh1) n))))
 ```
 
 ### Sixtieth problem:
