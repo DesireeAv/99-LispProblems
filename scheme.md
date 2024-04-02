@@ -560,6 +560,11 @@ Here, we can visualize better the tree levels:
 
 ### Fifty-ninth problem:
 ```scheme
+
+```
+
+### Sixtieth problem:
+```scheme
 (define(min-nodes H)
   (cond((= H 0) 1)
        ((= H 1) 2)
@@ -571,11 +576,6 @@ Here, we can visualize better the tree levels:
 (define (max-height-aux h fh fh1 n)
   (cond ((< n fh1)h)
         (else(max-height-aux (1+ h) fh1 (+ 1 fh fh1) n))))
-```
-
-### Sixtieth problem:
-```scheme
-
 ```
 ### Sixty-first problem:
 ```scheme
@@ -600,7 +600,24 @@ Here, we can visualize better the tree levels:
 ```
 ### Sixty-third problem:
 ```scheme
+(define (complete-binary-tree n)
+  (cbt-label n 1))
 
+(define (cbt-label n k)
+  (cond
+    ((= n 0) '())
+    ((= n 1) (list k '() '()))
+    (else(let* ((p (floor (/ (highest-2-power n) 2)))
+           (left (if (= 2 (floor (/ n p)))
+                     (+ p (modulo n p))
+                     (+ p (- p 1)))))
+           (list k
+                 (cbt-label left (* 2 k))
+                 (cbt-label (- n 1 left) (+ 1 (* 2 k))))))))
+
+(define (highest-2-power n)
+  (cond ((<= n 1)1)
+        (else(* 2 (highest-2-power (floor (/ n 2)))))))
 ``` 
 ### Sixty-fourth problem:
 ```scheme
