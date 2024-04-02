@@ -2,8 +2,7 @@
 ;;;;;;;;;;;; You can download here the complete file with the problems and try them!;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-; Working with lists
+;;; Working with lists
 
 ; First problem:
 
@@ -56,10 +55,10 @@
 (define is-palindrome?
   (lambda (x)
     (cond ((null? x)
-           t)
+           #t)
           ((equal? x (reverse x)) ; here
-           t)
-          (else f))))
+           #t)
+          (else #f))))
 
 
 ; Seventh problem:
@@ -334,7 +333,7 @@ b)
                   (> (cdr (assoc (length x) frequencies))
                      (cdr (assoc (length y) frequencies))))))))
 
-; Arithmetic
+;;; Arithmetic
 
 ; Thirty-first problem:
 
@@ -343,10 +342,10 @@ b)
 
 (define (is-prime-aux? n i)
   (cond
-       ((= n 2) t)
-       ((< n 2) f)
-       ((= (modulo n i) 0) f)
-       ((> (* i i) n) t)
+       ((= n 2) #t)
+       ((< n 2) #f)
+       ((= (modulo n i) 0) #f)
+       ((> (* i i) n) #t)
        (else (is-prime-aux? n (+ i 1)))))
 
 
@@ -360,8 +359,8 @@ b)
 ; Thirty-third problem:
 
 (define (coprime x y)
-  (cond ((= (gcd x y) 1)t)
-        (else f)))
+  (cond ((= (gcd x y) 1)#t)
+        (else #f)))
 
 
 ; Thirty-fourth problem:
@@ -435,20 +434,18 @@ b)
        (else(append  (goldbach (+ n 1)) (list '- ) (goldbach-list (+ n 1) m)))))
 
 
-; Logic and Codes
-; Binary Trees
+;;; Logic and Codes
+;;; Binary Trees
 
 
 ; Fifty-fourth problem:
 
 (define (istree? tree)
-  (cond ((null? tree) t)
+  (cond ((null? tree) #t)
         (else (and (list? tree)                    ; if it is a list
                    (= 3 (length tree))             ; is the length is 3
                    (istree? (cadr tree))           ; recursive call to the left subtree
                    (istree? (caddr tree))))))      ; recursive call to the left subtree
-
-
 
 
 ; Fifty-fifth problem:
@@ -460,21 +457,37 @@ b)
                     (list (cbal-tree-print (- n 1)))
                     ))))
 
+
 ; Fifty-sixth problem:
 
 (define (symmetric tree)
   (define (mirror? left right)
-    (cond ((and (null? left) (null? right)) t)  
-          ((or (null? left) (null? right)) f)  
+    (cond ((and (null? left) (null? right)) #t)  
+          ((or (null? left) (null? right)) #f)  
           (else (and (mirror? (car left) (car right))  
                      (mirror? (cdr left) (cdr right))))))
-  (cond ((null? tree) t)  
+  (cond ((null? tree) #t)  
         (else (mirror? (car tree) (cdr tree)))))  
 
 
-; Fifty-Seventh problem:
+; Fifty-seventh problem:
 
+(define (construct lista)
+  (define (construct-helper lst t)
+    (cond ((null? lst) t)
+          (else (construct-helper (cdr lst) (bst-add (car lst) t)))))
+  (let ((tree '()))
+    (construct-helper lista tree)))
 
+(define (bst-add item tree)
+  (cond ((null? tree) (list item '() '()))
+        ((< item (car tree)) (cons (car tree)
+                                   (list (bst-add item (cadr tree))
+                                         (caddr tree))))
+        ((> item (car tree)) (cons (car tree)
+                                   (list (cadr tree)
+                                         (bst-add item (caddr tree)))))
+        (else tree)))
 
 
 ; Fifty-eighth problem:
@@ -495,7 +508,17 @@ b)
 
 ; Sixtieth problem:
 
+(define(min-nodes H)
+  (cond((= H 0) 1)
+       ((= H 1) 2)
+       (else(+ 1 (+ (min-nodes (- H 1)) (min-nodes (- H 2)) ))))) 
 
+(define (max-height n)
+  (max-height-aux -1 0 1 n))
+
+(define (max-height-aux h fh fh1 n)
+  (cond ((< n fh1)h)
+        (else(max-height-aux (1+ h) fh1 (+ 1 fh fh1) n))))
 
 ; Sixty-first problem:
 
@@ -520,7 +543,24 @@ b)
 
 ; Sixty-third problem:
 
+(define (complete-binary-tree n)
+  (cbt-label n 1))
 
+(define (cbt-label n k)
+  (cond
+    ((= n 0) '())
+    ((= n 1) (list k '() '()))
+    (else(let* ((p (floor (/ (highest-2-power n) 2)))
+           (left (if (= 2 (floor (/ n p)))
+                     (+ p (modulo n p))
+                     (+ p (- p 1)))))
+           (list k
+                 (cbt-label left (* 2 k))
+                 (cbt-label (- n 1 left) (+ 1 (* 2 k))))))))
+
+(define (highest-2-power n)
+  (cond ((<= n 1)1)
+        (else(* 2 (highest-2-power (floor (/ n 2)))))))
  
 ; Sixty-fourth problem:
 
@@ -547,7 +587,7 @@ b)
 
 
 
-; Multiway Trees
+;;; Multiway Trees
 
 ;  problem:
 
@@ -575,5 +615,5 @@ b)
 
 
 
-; Graphs
-; Miscellaneous Problems
+;;; Graphs
+;;; Miscellaneous Problems
