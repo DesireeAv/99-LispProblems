@@ -527,9 +527,24 @@ Here, we can visualize better the tree levels:
         (else (mirror? (car tree) (cdr tree)))))  
 ```
 
-### Fifty-Seventh problem:
+### Fifty-seventh problem:
 ```scheme
+(define (construct lista)
+  (define (construct-helper lst t)
+    (cond ((null? lst) t)
+          (else (construct-helper (cdr lst) (bst-add (car lst) t)))))
+  (let ((tree '()))
+    (construct-helper lista tree)))
 
+(define (bst-add item tree)
+  (cond ((null? tree) (list item '() '()))
+        ((< item (car tree)) (cons (car tree)
+                                   (list (bst-add item (cadr tree))
+                                         (caddr tree))))
+        ((> item (car tree)) (cons (car tree)
+                                   (list (cadr tree)
+                                         (bst-add item (caddr tree)))))
+        (else tree)))
 ```
 
 ### Fifty-eighth problem:
