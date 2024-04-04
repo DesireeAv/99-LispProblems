@@ -6,7 +6,7 @@ Their representation:
      (c ())
      (d ((r ())))))
 ```
-![Example Image](https://i.imgur.com/example.jpg)
+![Example Image](texample.png)
 ### Is a multiway tree?
 ``` scheme
 
