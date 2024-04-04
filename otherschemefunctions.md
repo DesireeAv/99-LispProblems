@@ -9,5 +9,10 @@ Their representation:
 ![Example Image](texample.png)
 ### Is a multiway tree?
 ``` scheme
-
+(define isntree?
+  (lambda (tree)
+    (cond((null? tree) #t)
+         ((> (length tree) 2) #f)
+         ((= (length tree) 1) #f)
+         (else (andmap isntree? (cadr tree))))))
 ```
