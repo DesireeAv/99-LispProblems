@@ -584,12 +584,16 @@ Here, we can visualize better the tree levels:
        ((null? (and (cadr tree) (caddr tree) )) 1)
        (else(+ (count-leaves (cadr tree)) (count-leaves (caddr tree))))))
 ```
-### Sixty-second problem:
+### Sixty-first-A problem:
 ```scheme
 (define (leaves tree)
   (cond((null? tree)'())
        ((and (null? (cadr tree)) (null?(caddr tree)) ) (list (car tree)))
        (else(append (leaves (cadr tree)) (leaves (caddr tree))))))
+```
+### Sixty-second problem:
+```scheme
+
 ```
 ### Sixty-second-B problem:
 ```scheme
