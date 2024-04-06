@@ -593,7 +593,13 @@ Here, we can visualize better the tree levels:
 ```
 ### Sixty-second problem:
 ```scheme
-
+(define internals
+  (lambda (tree)
+    (cond((null? tree)'())
+         ((and (null? (cadr tree)) (null?(caddr tree)) ) '())
+         (else(append (list (car tree))
+                      (internals (cadr tree))
+                      (internals (caddr tree)))))))
 ```
 ### Sixty-second-B problem:
 ```scheme
