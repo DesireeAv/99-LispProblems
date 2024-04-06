@@ -663,7 +663,7 @@ Their scheme representation:
 ```
 ![Example Image](texample.png)
 
-### Seventieth problem: Is a multiway tree?
+### Seventieth-B problem: 
 ``` scheme
 (define isntree?
   (lambda (tree)
@@ -672,11 +672,14 @@ Their scheme representation:
          ((= (length tree) 1) #f)
          (else (andmap isntree? (cadr tree))))))
 ```
-###  problem:
+### Seventieth-C problem:
 ```scheme
-
+(define nnodes
+  (lambda(tree)
+    (cond((null? tree) 0)
+         (else (+ 1 (apply + (map nnodes (cadr tree))))))))
 ```
-###  problem:
+### Seventieth problem:
 ```scheme
 
 ```
