@@ -120,8 +120,8 @@ drop2([], _A, _N) -> [].
 ### Seventeenth problem:
 ```erlang
 split(L,N) -> split(L, N, []).
-split(L,0,A) -> [lists:reverse(A), L];
-split([H|T], N, A) -> split(T, N-1, [H|A]).
+split(L, 0, A) -> [A, L];
+split([H|T], N, A)->split(T, N-1, A++[H]).
 ```
 
 ### Eighteenth problem:
