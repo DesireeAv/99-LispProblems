@@ -153,12 +153,21 @@ range(N, M) -> [N|range(N+1, M)].
 ### Twenty-third problem:
 ```erlang
 
-```erlang
 ```
 
 ### Twenty-fifth problem:
 ```erlang
 rndpermu(L) -> [Y || {_,Y} <- lists:sort([ {rand:uniform(), X} || X <- L])].
+```
+
+
+
+### Twenty-sixth problem:
+```erlang
+combination(_N, []) -> [];
+combination(0, _L) -> [[]];
+combination(N, L) when length(L) == N -> [L];
+combination(N, [H|T]) -> [[H|C] || C <- combination1(N-1, T)] ++ combination1(N, T).
 ```
 
 ### Twenty-seventh problem:
@@ -169,7 +178,6 @@ a)
 ### Twenty-eighth problem:
 a)
 ```erlang
-
 
 ```
 - ## Arithmetic
