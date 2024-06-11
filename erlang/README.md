@@ -97,7 +97,8 @@ decode([H | T]) -> [H| decode(T)].
 
 ### Fourteenth problem:
 ```erlang
-
+dupli([]) -> [];
+dupli([H|T]) -> [H, H | dupli(T)].
 ```
 
 ### Fifteenth problem:
