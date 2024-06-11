@@ -171,13 +171,10 @@ combination(N, [H|T]) -> [[H|C] || C <- combination1(N-1, T)] ++ combination1(N,
 
 
 %%% Twenty-seventh problem:
-a)
 
 
 
 %%% Twenty-eighth problem:
-a)
-
 lsort(LL) -> [Y || {_Length, Y} <- lists:sort([{length(X), X} || X <- LL])].
 
 %%% Arithmetic
@@ -258,7 +255,6 @@ lsort(LL) -> [Y || {_Length, Y} <- lists:sort([{length(X), X} || X <- LL])].
 
 
 %%% Fifty-eighth problem:
-(Its the same function as the problem 55)
 
 
 
@@ -318,10 +314,8 @@ lsort(LL) -> [Y || {_Length, Y} <- lists:sort([{length(X), X} || X <- LL])].
 
 
 %%% Multiway Trees
-Their erlang representation:
 
 %%% Seventieth-B problem: 
- erlang
 
 
 %%% Seventieth-C problem:
