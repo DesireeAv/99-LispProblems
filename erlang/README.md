@@ -103,7 +103,8 @@ dupli([H|T]) -> [H, H | dupli(T)].
 
 ### Fifteenth problem:
 ```erlang
-
+repli([], _N)->[];
+repli([H|T], N) -> detuple({H, N}) ++ repli(T, N).
 ```
 
 ### Sixteenth problem:
