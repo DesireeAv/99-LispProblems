@@ -109,7 +109,12 @@ repli([H|T], N) -> detuple({H, N}) ++ repli(T, N).
 
 ### Sixteenth problem:
 ```erlang
+drop1([], _N) -> [];
+drop1(L, N) -> drop2(L, N, N).
 
+drop2([_H|T], 1, N) -> drop2(T, N, N);
+drop2([H|T], A, N) -> [H|drop2(T, A-1, N)];
+drop2([], _A, _N) -> [].
 ```
 
 ### Seventeenth problem:
