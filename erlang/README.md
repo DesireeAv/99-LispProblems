@@ -195,7 +195,8 @@ prime(N, I) -> prime(N, I+2).
 
 ### Thirty-second problem:
 ```erlang
-
+gcd(A, 0) -> A;
+gcd(A, B) -> gcd(B, mod(A, B)).
 ```
 
 ### Thirty-third problem:
