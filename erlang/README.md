@@ -178,7 +178,7 @@ a)
 ### Twenty-eighth problem:
 a)
 ```erlang
-
+lsort(LL) -> [Y || {_Length, Y} <- lists:sort([{length(X), X} || X <- LL])].
 ```
 - ## Arithmetic
 
