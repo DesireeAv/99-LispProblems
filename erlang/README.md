@@ -238,7 +238,14 @@ rangeprimes(N, M) -> [X || X <- lists:seq(N, M), prime(X)].
 ```
 ### Fortyth problem:
 ```erlang
+numsum(_N, []) -> [];
+numsum(N, [H|T]) ->
+    case lists:member(N-H, T) of
+        true -> {H, N-H};
+        false -> numsum(N, T)
+    end.
 
+goldbach(N) when N rem 2 =:= 0 -> numsum(N, rangeprimes(2, N)).
 ```
 ### Forty-one problem:
 ```erlang
