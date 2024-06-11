@@ -88,8 +88,6 @@ encodemodified(L)->[tuple(X)||X<-pack(L)].
 ### Twelfth problem:
 ```erlang
 
-```erlang
-
 ```
 
 ### Fourteenth problem:
