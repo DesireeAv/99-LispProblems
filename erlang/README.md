@@ -211,7 +211,12 @@ gcd(A, B) -> gcd(B, mod(A, B)).
 
 ### Thirty-fifth problem:
 ```erlang
+primefactors(N) -> primefactors(N, N, 3).
 
+primefactors(1, _M, _I) -> [];
+primefactors(N, M, I) when N rem 2 =:= 0 -> [2| primefactors(N div 2, M, I)];
+primefactors(N, M, I) when N rem I =:= 0 -> [I| primefactors(N div I, M, I)];
+primefactors(N, M, I) -> primefactors (N, M, I + 2).
 ```
 
 ### Thirty-sixth problem:
