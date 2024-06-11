@@ -87,7 +87,12 @@ encodemodified(L)->[tuple(X)||X<-pack(L)].
 
 ### Twelfth problem:
 ```erlang
+detuple({_E, 0}) -> [];
+detuple({E, N}) -> [E] ++ detuple({E, N-1}).
 
+decode([]) -> [];
+decode([H | T]) when is_tuple(H) -> detuple(H) ++ decode(T);
+decode([H | T]) -> [H| decode(T)].
 ```
 
 ### Fourteenth problem:
