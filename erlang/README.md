@@ -158,21 +158,18 @@ range(N, M) -> [N|range(N+1, M)].
 
 ### Twenty-fifth problem:
 ```erlang
-
-```erlang
+rndpermu(L) -> [Y || {_,Y} <- lists:sort([ {rand:uniform(), X} || X <- L])].
 ```
 
 ### Twenty-seventh problem:
 a)
 ```erlang
 
-```erlang
 ```
 ### Twenty-eighth problem:
 a)
 ```erlang
 
-```erlang
 
 ```
 - ## Arithmetic
@@ -213,36 +210,6 @@ a)
 ```
 
 ### Thirty-eighth problem:
-Test 1:
-```bash
-> (time (phi2 10090))
-cpu time: 0 real time: 0 gc time: 0
-4032
-> (time(totient-phi 10090))
-cpu time: 5 real time: 5 gc time: 0
-4032
-```
-This previous example didn't demonstrate the difference in time complexity between the two algorithms, so I ran two more tests:
-
-Test 2:
-```bash
-> (time (phi2 100900))
-cpu time: 0 real time: 0 gc time: 0
-40320
-> (time(totient-phi 100900))
-cpu time: 62 real time: 62 gc time: 1
-40320
-```
-Test 3:
-```bash
-> (time (phi2 1009000))
-cpu time: 0 real time: 0 gc time: 0
-403200
->  (time(totient-phi 1009000))
-cpu time: 873 real time: 873 gc time: 249
-403200
-```
-So there we can really see the difference between these two algorithms, being the problem 37 the most efficient one.
 
 
 ### Thirty-nineth problem:
