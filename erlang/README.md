@@ -171,12 +171,10 @@ combination(N, [H|T]) -> [[H|C] || C <- combination1(N-1, T)] ++ combination1(N,
 ```
 
 ### Twenty-seventh problem:
-a)
 ```erlang
 
 ```
 ### Twenty-eighth problem:
-a)
 ```erlang
 lsort(LL) -> [Y || {_Length, Y} <- lists:sort([{length(X), X} || X <- LL])].
 ```
@@ -184,7 +182,15 @@ lsort(LL) -> [Y || {_Length, Y} <- lists:sort([{length(X), X} || X <- LL])].
 
 ### Thirty-first problem:
 ```erlang
+prime(1) -> false;
+prime(2) -> true;
+prime(N) when N rem 2 =:= 0 -> false;
+prime(3) -> true;
+prime(Odd) -> prime(Odd, 3).
 
+prime(N, I) when N rem I =:= 0 -> false;
+prime(N, I) when I*I > N -> true;
+prime(N, I) -> prime(N, I+2).
 ```
 
 ### Thirty-second problem:
