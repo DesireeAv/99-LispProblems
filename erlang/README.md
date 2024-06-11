@@ -146,7 +146,8 @@ split([H|T], N, A)->split(T, N-1, A++[H]).
 
 ### Twenty-second problem:
 ```erlang
-
+range(M, M) -> [M];
+range(N, M) -> [N|range(N+1, M)].
 ```
 
 ### Twenty-third problem:
