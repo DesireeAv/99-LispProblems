@@ -234,7 +234,7 @@ primefactors(N, M, I) -> primefactors (N, M, I + 2).
 
 ### Thirty-nineth problem:
 ```erlang
-
+rangeprimes(N, M) -> [X || X <- lists:seq(N, M), prime(X)].
 ```
 ### Fortyth problem:
 ```erlang
