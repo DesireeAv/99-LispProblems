@@ -257,7 +257,9 @@ goldbach(N) when N rem 2 =:= 0 -> numsum(N, rangeprimes(2, N)).
 
 ### Fifty-fourth problem:
 ```erlang
-
+istree({}) -> true;
+istree({_, I, D}) -> istree(I) and istree(D);
+istree(I) -> false.
 ```
 
 
