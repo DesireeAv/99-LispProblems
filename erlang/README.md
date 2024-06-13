@@ -311,7 +311,8 @@ countleaves({_R, I, D}) -> countleaves(I) + countleaves(D).
 ```
 ### Sixty-first-A problem:
 ```erlang
-
+leaves({X, {}, {}}) -> [X];
+leaves({_R, I, D}) -> leaves(I) ++ leaves(D).
 ```
 ### Sixty-second problem:
 ```erlang
