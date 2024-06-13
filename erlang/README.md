@@ -279,7 +279,15 @@ symetric({_R1, I1, D1}, {_R2, I2, D2}) -> symetric(I1, I2) and symetric(D1, D2).
 
 ### Fifty-seventh problem:
 ```erlang
+construct([N]) -> {N, {}, {}};
+construct([H|T]) -> construct(T, {H, {}, {}}).
 
+insert(N, {}) -> {N, {}, {}};
+insert(N, {Root, L, R}) when N =< Root -> {Root, insert(N, L), R};
+insert(N, {Root, L, R}) when N > Root -> {Root, L, insert(N, R)}.
+
+construct([], Tree) -> Tree;
+construct([H|T], Tree) -> construct(T, insert(H, Tree)).
 ```
 
 ### Fifty-eighth problem:
