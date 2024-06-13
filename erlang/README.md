@@ -321,7 +321,9 @@ internals({R, I, D}) -> [R | internals(I) ++ internals(D)].
 ```
 ### Sixty-second-B problem:
 ```erlang
-
+atlevel({}, N) -> [];
+atlevel({R, _I, _D}, 1) -> [R];
+atlevel({_R, I, D}, N) -> atlevel(I, N-1) ++ atlevel(D, N-1).
 ```
 ### Sixty-third problem:
 ```erlang
