@@ -295,11 +295,19 @@ symetric({_R1, I1, D1}, {_R2, I2, D2}) -> symetric(I1, I2) and symetric(D1, D2).
 
 ### Sixtieth problem:
 ```erlang
+minnodes(-1) -> 0;
+minnodes(0) -> 1;
+minnodes(N) -> 1 + minnodes(N-1) + minnodes(N-2). 
+
+maxheight(N) ->  round(math:floor(math:log2(N+1)) - 1).
+
 
 ```
 ### Sixty-first problem:
 ```erlang
-
+countleaves({}) -> 0;
+countleaves({_X, {}, {}}) -> 1;
+countleaves({_R, I, D}) -> countleaves(I) + countleaves(D).
 ```
 ### Sixty-first-A problem:
 ```erlang
