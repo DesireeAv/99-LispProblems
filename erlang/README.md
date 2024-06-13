@@ -316,7 +316,8 @@ leaves({_R, I, D}) -> leaves(I) ++ leaves(D).
 ```
 ### Sixty-second problem:
 ```erlang
-
+internals({}) -> [];
+internals({R, I, D}) -> [R | internals(I) ++ internals(D)].
 ```
 ### Sixty-second-B problem:
 ```erlang
