@@ -265,12 +265,16 @@ istree(I) -> false.
 
 ### Fifty-fifth problem:
 ```erlang
-
+cbaltree(0) -> {};
+cbaltree(N)  -> {N, cbaltree(N-1), cbaltree(N-1)}.
 ```
 
 ### Fifty-sixth problem:
 ```erlang
-
+symetric({}, {}) -> true;
+symetric({_X, _Y, _Y}, {}) -> false;
+symetric({}, {_X, _Y, _Y}) -> false;
+symetric({_R1, I1, D1}, {_R2, I2, D2}) -> symetric(I1, I2) and symetric(D1, D2).
 ```
 
 ### Fifty-seventh problem:
