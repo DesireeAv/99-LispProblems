@@ -254,7 +254,11 @@ goldbach(N) when N rem 2 =:= 0 -> numsum(N, rangeprimes(2, N)).
 
 - ## Logic and Codes
 - ## Binary Trees
-
+Their representation: {3, 
+    					{2,{},{}},
+    					{8,{5,{},
+    						  {6,{},{}}},
+    					   {9,{},{}}}}
 ### Fifty-fourth problem:
 ```erlang
 istree({}) -> true;
