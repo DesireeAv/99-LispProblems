@@ -374,11 +374,13 @@ preorder({R, I, D}, Acc) -> [R | preorder(I, preorder(D, Acc))].
 ```
 
 - ## Multiway Trees
-Their erlang representation:
+Their erlang representation: {r, [{s, []}, {m, []}]}
 
 ### Seventieth-B problem: 
 ``` erlang
-
+isMtree([]) -> true;
+isMtree({R, L}) -> 
+    is_list(L) andalso lists:foldl(fun(H, Acc) -> Acc andalso isMtree(H) end, true, L).
 ```
 ### Seventieth-C problem:
 ```erlang
