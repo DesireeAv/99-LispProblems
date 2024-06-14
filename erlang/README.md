@@ -384,7 +384,9 @@ isMtree({R, L}) ->
 ```
 ### Seventieth-C problem:
 ```erlang
-
+nMnodes([]) -> 0;
+nMnodes({_R, []}) -> 1;
+nMnodes({_R, L}) -> 1 + lists:foldl(fun(H, Acc) -> Acc + nMnodes(H) end, 0, L).
 ```
 ### Seventieth problem:
 ```erlang
