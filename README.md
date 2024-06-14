@@ -1,5 +1,5 @@
-# L-99: Ninety-Nine Lisp Problems 
-This is a repository that will have the solutions to the [Ninety-Nine Lisp Problems](https://www.ic.unicamp.br/~meidanis/courses/mc336/problemas-lisp/L-99_Ninety-Nine_Lisp_Problems.html)  in various lenguages, such as `scheme` 👾, `erlang` 🐙 and `prolog` 🐊.
+# P-99: Ninety-Nine Prolog Problems 
+This is a repository that will have the solutions to the [Ninety-Nine Prolog Problems](https://www.ic.unicamp.br/~meidanis/courses/mc336/2009s2/prolog/problemas/)  in various lenguages, such as `scheme` 👾, `erlang` 🐙 and `prolog` 🐊.
 
 
 ### Helpful websites 👀
