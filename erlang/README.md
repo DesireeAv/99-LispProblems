@@ -360,13 +360,13 @@ atlevel({_R, I, D}, N) -> atlevel(I, N-1) ++ atlevel(D, N-1).
 ### Sixty-eighth problem:
 a)
 ```erlang
-preorder({}) -> [];
-preorder({R, {}, {}}) -> [R];
-preorder({R, I, D}) -> [R|preorder(I)] ++ preorder(D).
+inorder(Tree) -> inorder(Tree, []).
+inorder({}, Acc) -> Acc;
+inorder({R, I, D}, Acc) -> inorder(I, [R | inorder(D, Acc)]).
 
-inorder({}) -> [];
-inorder({R, {}, {}}) -> [R];
-inorder({R, I, D}) -> inorder(I) ++ [R| inorder(D)].
+preorder(Tree) -> preorder(Tree, []).
+preorder({}, Acc) -> Acc;
+preorder({R, I, D}, Acc) -> [R | preorder(I, preorder(D, Acc))].
 ```
 ### Sixty-ninth problem:
 ```erlang
