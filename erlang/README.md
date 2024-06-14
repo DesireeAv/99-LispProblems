@@ -354,8 +354,15 @@ atlevel({_R, I, D}, N) -> atlevel(I, N-1) ++ atlevel(D, N-1).
 
 ```
 ### Sixty-eighth problem:
+a)
 ```erlang
+preorder({}) -> [];
+preorder({R, {}, {}}) -> [R];
+preorder({R, I, D}) -> [R|preorder(I)] ++ preorder(D).
 
+inorder({}) -> [];
+inorder({R, {}, {}}) -> [R];
+inorder({R, I, D}) -> inorder(I) ++ [R| inorder(D)].
 ```
 ### Sixty-ninth problem:
 ```erlang
