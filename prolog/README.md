@@ -1,4 +1,4 @@
-# 99- prologProblems   
+# 99-PrologProblems   
 This file has the purpose of studying the [`99  prolog Problems`](https://www.ic.unicamp.br/~meidanis/courses/mc336/problemas-lisp/L-99_Ninety-Nine_Lisp_Problems.html).
 They are the following:
 
@@ -6,22 +6,27 @@ They are the following:
 
 ### First problem:
 ``` prolog
-
+mylast([X], X) :- !.
+mylast([_H|T], X) :- mylast(T, X).
 ```
 
 ### Second problem:
 ``` prolog
-
+mybutlast([X, _Y], X) :- !.
+mybutlast([_H|T], X) :- mybutlast(T, X).
 ```
 
 ### Third problem:
 ``` prolog
-
+element_at([X], 1, X) :- !.
+element_at([H|_T], 1, H) :- !.
+element_at([_H|T], N, X) :- N1 is N - 1, element_at(T,N1, X).
 ```
 
 ### Fourth problem:
 ``` prolog
-
+mylength([], 0) :- !.
+mylength([_H|T], X) :- mylength(T, Size), X is Size + 1.
 ```
 
 ### Fifth problem:
