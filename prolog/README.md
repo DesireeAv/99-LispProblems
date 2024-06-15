@@ -105,7 +105,12 @@ dupli([H|T], [H, H | X]):- dupli(T, X).
 
 ### Fifteenth problem:
 ``` prolog
+dupli1([], []) :- !.
+dupli1(L, N, X):- dupli1(L, N, N, X).
 
+dupli1([], _, _, []) :-!.
+dupli1([_H|T], 0, N2, X) :- dupli1(T, N2, N2, X).
+dupli1([H|T], N1, N2, [H|X]) :- N is N1-1, dupli1([H|T], N, N2, X).
 ```
 
 ### Sixteenth problem:
