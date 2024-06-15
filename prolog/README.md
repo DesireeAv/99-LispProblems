@@ -99,7 +99,8 @@ decode([H|T], [X1|X]) :- detuple(H, X1), decode(T, X).
 
 ### Fourteenth problem:
 ``` prolog
-
+dupli([], []) :- !.
+dupli([H|T], [H, H | X]):- dupli(T, X).
 ```
 
 ### Fifteenth problem:
