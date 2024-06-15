@@ -45,7 +45,13 @@ palindrome(L) :- invert(L, L).
 
 ### Seventh problem:
 ``` prolog
-
+my_flatten([], []) :- !.
+my_flatten([[H|T]| TT], FF) :- 
+		my_flatten([H|T], F1), 
+		my_flatten(TT, F2), 
+		append(F1, F2, FF).
+my_flatten([[], T], F) :- my_flatten(T, F).
+my_flatten([H|T], [H|F]) :- my_flatten(T, F).
 ```
 
 ### Eighth problem:
