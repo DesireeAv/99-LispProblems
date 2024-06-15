@@ -56,40 +56,61 @@ my_flatten([H|T], [H|F]) :- my_flatten(T, F).
 
 ### Eighth problem:
 ``` prolog
-
+compress([], []) :-!.
+compress([H, H|T], X) :- !, compress([H|T], X).
+compress([H|T], [H|X]) :- compress(T, X).
 ```
 
 ### Nineth problem:
 ``` prolog
+pack([], []) :- !.
+pack([H|T], X) :- pack(T, [H], X).
 
+pack([], P, [P]):-!.
+pack([H|T], [H|P], X) :- !, pack(T, [H, H|P], X).
+pack([H|T], L, [L|X]) :- pack(T, [H], X).
 ```
 
 ### Tenth problem:
 ``` prolog
+encode(L, LE):- pack(L, PL), encode1(PL,LE).
+
+encode1([], []):-!.
+encode1([[A|TA]|T], [[A,Len]|X]) :- length(TA, Le), Len is Le + 1, encode1(T, X).
 ```
 
 ### Eleventh problem:
 ``` prolog
+encode_modified(L, LE) :- pack(L, PL), encode_modified1(PL, LE).
+
+encode_modified1([], []) :- !.
+encode_modified1([[A]|T], [A|X]) :- encode_modified1(T, X).
+encode_modified1([[A|TA]|T], [[A,Len]|X]) :- length(TA, Le), Len is Le + 1, encode_modified1(T, X).
 ```
 
 ### Twelfth problem:
 ``` prolog
+
 ```
 
 ### Fourteenth problem:
 ``` prolog
+
 ```
 
 ### Fifteenth problem:
 ``` prolog
+
 ```
 
 ### Sixteenth problem:
 ``` prolog
+
 ```
 
 ### Seventeenth problem:
 ``` prolog
+
 ```
 
 ### Eighteenth problem:
