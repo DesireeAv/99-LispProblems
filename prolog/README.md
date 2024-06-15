@@ -31,12 +31,16 @@ mylength([_H|T], X) :- mylength(T, Size), X is Size + 1.
 
 ### Fifth problem:
 ``` prolog
+invert([], []) :- !.
+invert(L, X) :- invert(L, [], X).
 
+invert([], X, X) :- !.
+invert([H|T], Acc, X) :- invert(T, [H|Acc], X).
 ```
 
 ### Sixth problem:
 ``` prolog
-
+palindrome(L) :- invert(L, L).
 ```
 
 ### Seventh problem:
