@@ -90,7 +90,11 @@ encode_modified1([[A|TA]|T], [[A,Len]|X]) :- length(TA, Le), Len is Le + 1, enco
 
 ### Twelfth problem:
 ``` prolog
+detuple([_S, 0],  []) :-!.
+detuple([S, N], [S|X]) :- N > 0, N1 is N-1, detuple([S, N1], X).
 
+decode([], []) :-!.
+decode([H|T], [X1|X]) :- detuple(H, X1), decode(T, X).
 ```
 
 ### Fourteenth problem:
