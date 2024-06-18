@@ -115,12 +115,18 @@ dupli1([H|T], N1, N2, [H|X]) :- N is N1-1, dupli1([H|T], N, N2, X).
 
 %%% Sixteenth problem:
 
+drop([], _, []) :- !.
+drop(L, N, X) :- drop(L, N, N, X).
 
+drop([], _, _, []) :- !.
+drop([_H|T], 1, N2, X) :- drop(T, N2, N2, X).
+drop([H|T], N1, N2, [H|X]) :- N is N1-1, drop(T, N, N2, X).
 
 
 %%% Seventeenth problem:
 
-
+split(L, 0, [], L) :- !.
+split([H|T], N, [H|L1], L2) :- N1 is N-1, split(T, N1, L1, L2).
 
 
 %%% Eighteenth problem:
